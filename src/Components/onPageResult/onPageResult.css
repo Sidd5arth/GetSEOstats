@@ -1,0 +1,71 @@
+.pageChunk-grid{
+    display: grid;
+    margin-top:2em;
+    grid-template-rows: repeat(3, 1fr); 
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+}
+.pageStat-grid{
+    margin-top:2em;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+}
+.container-Card{
+    width: 80vw;
+    margin-top: 7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pageSpeed-grid{
+    margin-top:2em;
+    display: grid;
+    grid-template-rows: repeat(1, 1fr); 
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+}
+.onpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 700px) {
+    .pageChunk-grid{
+        grid-template-rows: repeat(6, 1fr); 
+        grid-template-columns: repeat(2, 1fr); 
+        align-items: center;
+
+    }
+    .pageSpeed-grid{
+        grid-template-rows: repeat(3, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+    .pageStat-grid{
+        grid-template-rows: repeat(6, 1fr); 
+        grid-template-columns: repeat(2, 1fr); 
+
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1200px) {
+    .pageSpeed-grid{
+        grid-template-rows: repeat(2, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}

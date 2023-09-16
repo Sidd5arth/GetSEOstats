@@ -1,0 +1,30 @@
+.pagechunk {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+  padding: 1em;
+  background-color: #fffff2;
+  border-radius: 0.5em;
+  height: 108px;
+  border: 0.1em solid #fff;
+  background: #fdfeff;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
+  backdrop-filter: blur(7.5px);
+  transition: all 0.3 ease-in;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+    .pagechunk {
+        font-size: 0.7em;
+        gap: 0.3em;
+      }
+}
+
+@media (min-width: 701px) and (max-width: 1200px) {
+    .pagechunk {
+        font-size: 0.8em;
+        gap: 0.3em;
+      }
+}
