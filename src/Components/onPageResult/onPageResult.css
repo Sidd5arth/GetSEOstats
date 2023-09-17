@@ -36,6 +36,18 @@
     align-items: center;
     width: 80vw;
 }
+.pageTags-grid{
+    margin-top:2em;
+    margin-bottom:4em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+    justify-content: center;
+    align-items: start;
+    width: 80vw;
+    align-self: start;
+    grid-auto-rows: min-content;
+}
 .onpage{
     display: flex;
     flex-direction: column;
@@ -60,6 +72,10 @@
         grid-template-columns: repeat(2, 1fr); 
 
     }
+    .pageTags-grid{
+        grid-template-columns: repeat(2, 1fr); 
+        width: 100%;
+    }
 }
 
 @media (min-width: 701px) and (max-width: 1200px) {
@@ -68,4 +84,5 @@
         grid-template-columns: repeat(3, 1fr);
 
     }
+    
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useCallback } from "react";
 import * as d3 from "d3";
 import AppContext from "../../../context/app-context";
 
@@ -30,23 +30,14 @@ function PieChart({ data, color }) {
     width = Math.floor(appContext.dimensions.width) * 0.5 - margin.left - margin.right;
   }
 
-  const percentage = data;
-
-  // outerRadius = 100;
-  // innerRadius = 40; 
+  const percentage = data; 
 
   const startAngle = 0;
   const endAngle = (percentage / 100) * Math.PI * 2;
 
   const pieData = [{ startAngle, endAngle }];
 
-  useEffect(() => {
-    if (svgRef.current) {
-      drawChart();
-    }
-  }, [percentage, appContext.dimensions]);
-
-  function drawChart() {
+  const drawChart = useCallback(() => {
     d3.select(svgRef.current).select("svg").remove();
 
     width = 2 * outerRadius + margin.left + margin.right;
@@ -91,7 +82,13 @@ function PieChart({ data, color }) {
       .style("font-size", "32px")
       .text(`${percentage}%`)
       .attr("fill", "#32232e");
+}, [percentage, appContext.dimensions, color]);
+
+useEffect(() => {
+  if (svgRef.current) {
+    drawChart();
   }
+}, [drawChart]);
 
   return (
     <div

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Widget from "../Widget/Widget";
 import "./home.css";
 import AppContext from "../../context/app-context";
-import FrameComponent from "react-frame-component";
+// import FrameComponent from "react-frame-component";
 const Home = ({ handleSubmit, inputRef }) => {
   const [siteData, setSitedata] = useState();
   const { data, isLoading } = useContext(AppContext);

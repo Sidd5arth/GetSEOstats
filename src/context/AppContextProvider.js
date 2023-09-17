@@ -36,6 +36,7 @@ const AppContextProvider = ({ children, url }) => {
           "content-type": "application/json",
         },
       });
+      console.log(response);
       const result = response.data.tasks[0].result[0].items[0]
       console.log(result);
       setIsLoading(false);

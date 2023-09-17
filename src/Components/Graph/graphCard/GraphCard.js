@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import "./graphCard.css";
 import PieChart from "../graphs/PieChart";
 

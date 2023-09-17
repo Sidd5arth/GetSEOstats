@@ -3,10 +3,12 @@ import OnPageChunks from "./onPageChunks/OnPageChunks";
 import "./onPageResult.css";
 import OnPageStats from "./onPageStats/OnPageStats";
 import OnPageSpeed from "./onPageSpeed/OnPageSpeed";
-const OnPageResult = ({ metaData, statData, speedData }) => {
+import OnPageTags from "./onPageTags/OnPageTags";
+const OnPageResult = ({ metaData, statData, speedData, htags }) => {
   const [onPageData, SetOnPageData] = useState([]);
   const [onPageStat, SetOnPageStat] = useState([]);
   const [onPageSpeed, SetOnPageSpeed] = useState([]);
+  const [onPageTags, SetOnPageTags] = useState([]);
   useEffect(() => {
     if (metaData) {
       const metaArr = [
@@ -135,7 +137,37 @@ const OnPageResult = ({ metaData, statData, speedData }) => {
       ];
       SetOnPageSpeed(speedArr);
     }
-  }, [metaData, statData, speedData]);
+    if (htags) {
+      const HArr = [
+        {
+          title: "H1 Tags",
+          value: htags.h1 || [],
+        },
+        {
+          title: "H2 Tags",
+          value: htags.h2 || [],
+        },
+        {
+          title: "H3 Tags",
+          value: htags.h3 || [],
+        },
+        {
+          title: "H4 Tags",
+          value: htags.h4 || [],
+        },
+        {
+          title: "H5 Tags",
+          value: htags.h5 || [],
+        },
+        {
+          title: "H6 Tags",
+          value: htags.h6 || [],
+        },
+      ];
+      SetOnPageTags(HArr);
+      console.log(HArr)
+    }
+  }, [metaData, statData, speedData, htags]);
   return (
     <div className="onpage">
       <div className="container-Card">
@@ -149,7 +181,7 @@ const OnPageResult = ({ metaData, statData, speedData }) => {
           }}
         >
           <h2>Onpage Speed</h2>
-          <p>Over all score</p>
+          <p>Page speed insights</p>
         </div>
         <div className="pageSpeed-grid">
           {onPageSpeed.map((data) => (
@@ -173,7 +205,7 @@ const OnPageResult = ({ metaData, statData, speedData }) => {
           }}
         >
           <h2>Onpage Results</h2>
-          <p>Over all score</p>
+          <p>Over all data</p>
         </div>
         <div className="pageChunk-grid">
           {onPageData.map((data) => (
@@ -196,7 +228,7 @@ const OnPageResult = ({ metaData, statData, speedData }) => {
           }}
         >
           <h2>Onpage essentials</h2>
-          <p>Over all score</p>
+          <p>Must have SEO checks</p>
         </div>
         <div className="pageStat-grid">
           {onPageStat.map((data) => (
@@ -205,6 +237,31 @@ const OnPageResult = ({ metaData, statData, speedData }) => {
               heading={data.title}
               value={data.value}
             />
+          ))}
+        </div>
+      </div>
+      <div className="container-Card">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "left",
+            width: "100%",
+            marginBottom: "1em",
+          }}
+        >
+          <h2>Onpage Tags</h2>
+          <p>All "H" Tags on the Page</p>
+        </div>
+        <div className="pageTags-grid">
+          {onPageTags.map((data) => (
+            data.value.length > 0 ? (
+              <OnPageTags
+                key={data.title}
+                heading={data.title}
+                value={data.value}
+              />
+            ) : null
           ))}
         </div>
       </div>
